@@ -1,0 +1,105 @@
+.header {
+	width: 100%;
+	min-width: 860px;
+	font-family: Open sans;
+	height: 70px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    .avatar {
+        float: right;
+        margin: 10px;
+        position: relative;
+        &:hover{
+            .sub-menu{
+                opacity: 1;
+            }
+        }
+        .language{
+            float: left;
+            color: #ccc;
+            padding: 10px 30px;
+            font-size: 14px;
+            &:hover{
+                ul{
+                    display: block;
+                }
+            }
+            ul{
+                position: absolute;
+                background: #333;
+                display: none;
+                z-index: 1000;
+                margin-left: -25px;
+                li{
+                    cursor: pointer;
+                    padding: 5px 25px;
+                    &:hover{
+                        background: #444;
+                    }
+                }
+            }
+        }
+        .user-image {
+            width: 50px;
+            float: left;
+            border-radius: 4px;
+            border: 1px solid #313131;
+            margin-right: 15px;
+        }
+        .settings{
+            width: 30px;
+        }
+        .name {
+            font-size: 12px;
+            color: #ccc;
+            float: left;
+        }
+        .status{
+            font-size: 12px;
+            color: #9BE40C;
+        }
+        .sub-menu{
+            position: absolute;
+            background: #3C3B3B;
+            width: 100%;
+            //top: -160px;
+            opacity: 0;
+            -webkit-transition: all 0.5s;
+            -moz-transition: all 0.5s;
+            -o-transition: all 0.5s;
+            transition: all 0.5s;
+            box-shadow: 0 0 5px 1px #111;
+            li{
+                a{
+                    display: block;
+                    padding: 5px;
+                    color: #DEDADA;
+                    font-size: 14px;
+                    text-decoration: none;
+                    &:hover{
+                        background: #444;
+                    }
+                }
+            }
+        }
+        .profile-info {
+            display: inline-block;
+            font-size: 12px;
+            color: #ccc;
+            padding: 10px 0;
+            text-transform: uppercase;
+            margin-left: 8px;
+            .value{
+
+            }
+            .title {
+                font-size: 10px;
+                color: #9E9E9E;
+            }
+        }
+    }
+    ul {
+        list-style: none;
+    }
+}

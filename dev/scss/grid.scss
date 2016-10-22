@@ -1,0 +1,159 @@
+@import "mixins";
+.grid {
+    .radiantStrength,
+    .direStrength {
+        .tooltip_image {
+            &_type {
+                background: url(images/strength_ico.png);
+            }
+        }
+    }
+    .radiantAgility,
+    .direAgility {
+        .tooltip_image {
+            &_type {
+                background: url(images/agility_ico.png);
+            }
+        }
+    }
+    .radiantIntelligence,
+    .direIntelligence {
+        .tooltip_image {
+            &_type {
+                background: url(images/intelligance_ico.png);
+            }
+        }
+    }
+    .hero {
+        display: inline-block;
+        width: 13%;
+        position: relative;
+        margin-right: 0.5%;
+        -webkit-transition: all 300ms cubic-bezier(0.25, 0.1, 0.75, 1.0);
+        -moz-transition: all 300ms cubic-bezier(0.25, 0.1, 0.75, 1.0);
+        -o-transition: all 300ms cubic-bezier(0.25, 0.1, 0.75, 1.0);
+        transition: all 300ms cubic-bezier(0.25, 0.1, 0.75, 1.0);
+        /* linear */
+        .spriteImage {
+            // height: 100%;
+            width: 100%;
+            padding-top: 100%;
+            background-image: url(images/sprite.png);
+            background-size: cover!important;
+            background-position: center!important;
+            box-shadow: inset 1px 1px 1px 0px #908C8C;
+            &:after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.75);
+                z-index: -1;
+                top: 0;
+                margin: 1px 0px 0px 1px;
+            }
+            &:hover {
+                .tooltip_image{
+                    display: block;
+                }
+            }
+            &:hovered {
+                .tooltip_image{
+                    display: block;
+                }
+            }
+            &.selected{
+                .tooltip_image{
+                    display: none;
+                }
+                &:before{
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.75);
+                    top: 0;
+                }
+            }
+            &.shadow {
+                box-shadow: 0px 0px 1px 1px #fff;
+            }
+            .tooltip_image {
+                background-size: cover!important;
+                background-position: center!important;
+                display: none;
+                position: absolute;
+                width: 140px;
+                height: 180px;
+                z-index: 100;
+                top: -60px;
+                left: -35px;
+                animation-name: hero;
+                animation-duration: 1.5s;
+                animation-timing-function: cubic-bezier(0.215, 0.61, 1, 1);
+                animation-delay: 0s;
+                animation-iteration-count: infinite;
+                /* Safari and Chrome: */
+                -webkit-animation-name: hero;
+                -webkit-animation-duration: 1.5s;
+                -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 1, 1);
+                -webkit-animation-delay: 0s;
+                -webkit-animation-iteration-count: infinite;
+                background-size: cover;
+                background-position: center;
+                background-repeat: repeat-y;
+                &.active {
+                    display: block;
+                }
+                &_name {
+                    color: white;
+                    text-transform: uppercase;
+                    padding: 0px 5px 2px 5px;
+                    font-size: 10px;
+                    font-weight: 300;
+                    background: rgba(17, 16, 34, 0.7);
+                    position: relative;
+                    height: 18px;
+                    line-height: 20px;
+                    font-family: Open sans;
+                }
+                &_type {
+                    width: 15px;
+                    height: 15px;
+                    display: inline-block;
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    margin: auto;
+                    right: 3px;
+                    background-size: cover!important;
+                }
+                &_skils {
+                    position: absolute;
+                    bottom: 0;
+                    background: rgba(17, 16, 34, 0.7);
+                    width: 100%;
+                    padding: 7px 0px 7px 5px;
+                    .skil {
+                        width: 21%;
+                        height: 28px;
+                        float: left;
+                        box-shadow: inset 1px 1px 2px -1px #fff;
+                        margin-right: 4%;
+                        background-size: cover!important;
+                    }
+                }
+            }
+        }
+    }
+    .heroes-group {
+        width: 33%;
+        float: left;
+        margin-right: 0.5%;
+        margin-bottom: 15px;
+        &.radiantIntelligence,
+        &.direIntelligence {
+            margin-right: 0px;
+        }
+    }
+}
