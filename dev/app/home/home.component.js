@@ -9,16 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var hero_service_1 = require('dev/app/services/hero.service');
+var hero_service_1 = require('../services/hero.service');
 var HomeComponent = (function () {
     function HomeComponent(heroService) {
         this.heroService = heroService;
+        this.heroes = [];
     }
     HomeComponent.prototype.ngOnInit = function () {
         var _this = this;
         console.log('Hello Home');
         this.heroService.getMainData().subscribe(function (response) {
             _this.heroes = response.heroes;
+            _this.radiantStrength = response.heroes.filter(function (item) { return item.type == 'radiant-strength'; });
+            _this.radiantAgility = response.heroes.filter(function (item) { return item.type == 'radiant-agility'; });
+            _this.radiantIntelligence = response.heroes.filter(function (item) { return item.type == 'radiant-intelligence'; });
         });
     };
     HomeComponent = __decorate([
@@ -28,10 +32,9 @@ var HomeComponent = (function () {
             styleUrls: ['./dev/scss/styles.css'],
             providers: [hero_service_1.HeroService]
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof hero_service_1.HeroService !== 'undefined' && hero_service_1.HeroService) === 'function' && _a) || Object])
+        __metadata('design:paramtypes', [hero_service_1.HeroService])
     ], HomeComponent);
     return HomeComponent;
-    var _a;
 }());
 exports.HomeComponent = HomeComponent;
 //# sourceMappingURL=home.component.js.map

@@ -17,11 +17,10 @@
         </figure>
         </div>
         <div class="grid unselectable ">
-            <div *ngFor="let hero of heroes">
                 
-                <div class="heroes-group" [ngClass]="hero.key">
-      
-                    <div class="spriteImage {{hero.name}}" [ngStyle]="{background: 'url(http://www.dotastyle.com/back/assets/img/heroes/vert/{{$index}}.jpg)'}">
+            <div class="heroes-group radiantStrength">
+                <div class="hero" *ngFor="let hero of radiantStrength">
+                    <div class="spriteImage {{hero.name}}" [ngStyle]="{background: 'url(http://www.dotastyle.com/back/assets/img/heroes/vert/' + hero.id + '.jpg)'}">
                         <div class="tooltip_image">
                             <div class="tooltip_image_name">{{hero.localized_name}}<i class="tooltip_image_type"></i></div>
                             <div class="tooltip_image_skils">
@@ -29,9 +28,34 @@
                             </div>
                         </div>
                     </div>
-  
                 </div>
-
             </div>
+
+            <div class="heroes-group radiantAgility">
+                <div class="hero" *ngFor="let hero of radiantAgility">
+                    <div class="spriteImage {{hero.name}}" [ngStyle]="{background: 'url(http://www.dotastyle.com/back/assets/img/heroes/vert/' + hero.id + '.jpg)'}">
+                        <div class="tooltip_image">
+                            <div class="tooltip_image_name">{{hero.localized_name}}<i class="tooltip_image_type"></i></div>
+                            <div class="tooltip_image_skils">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="heroes-group radiantIntelligence">
+                <div class="hero" *ngFor="let hero of radiantIntelligence">
+                    <div class="spriteImage {{hero.name}}" [ngStyle]="{background: 'url(http://www.dotastyle.com/back/assets/img/heroes/vert/' + hero.id + '.jpg)'}">
+                        <div class="tooltip_image">
+                            <div class="tooltip_image_name">{{hero.localized_name}}<i class="tooltip_image_type"></i></div>
+                            <div class="tooltip_image_skils">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 </div>

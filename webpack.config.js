@@ -3,6 +3,7 @@ var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const NODE_ENV = process.env.NODE_ENV || 'dev';
 
@@ -10,12 +11,12 @@ module.exports = {
     entry: {
         'polyfills': './dev/polyfills.ts',
         'vendor': './dev/vendor.ts',
-        'main': './dev/main.ts'
+        'app': './dev/main.ts'
     },
     output: {
         path: path.join(__dirname, 'build'),
         filename: '[name].js',
-        publicPath: 'build'
+        publicPath: '/'
     },
     module: {
         loaders: [{
@@ -56,6 +57,10 @@ module.exports = {
             NODE_ENV: JSON.stringify(NODE_ENV)
         }),
         new webpack.HotModuleReplacementPlugin(),
+        new HtmlWebpackPlugin({
+          template: './dev/public/index.html',
+          chunksSortMode: 'dependency'
+        }),
         new CopyWebpackPlugin([{
             context: 'dev/img',
             from: '**/*',
@@ -65,6 +70,10 @@ module.exports = {
           //name: ['app', 'vendor', 'polyfills']
           name: "vendor"
         })
+        // new webpack.optimize.CommonsChunkPlugin({
+        //   name: ['vendor', 'polyfills']
+        // })
+
     ],
     //  devtool: 'source-map',
     resolve: {
@@ -72,9 +81,11 @@ module.exports = {
         alias: {
             // ymaps: 'vendor/angular-ymaps.js',
         },
+        modulesDirectories: ['node_modules'],
         extensions: ['', '.js', '.ts']
     },
     devServer: {
+        // contentBase: './dev/public',
         port: "8080",
         colors: true,
         historyApiFallback: true,

@@ -1,6 +1,10 @@
 "use strict";
 require('core-js/es6');
 require('core-js/es7/reflect');
+require('zone.js/dist/zone');
+// import 'core-js/client/shim';
+// import 'reflect-metadata';
+// import 'ts-helpers';
 // require('zone.js/dist/zone');
 //if (process.env.ENV === 'prod') {
 // Production

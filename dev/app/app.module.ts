@@ -7,6 +7,8 @@ import { HttpModule, JsonpModule } from '@angular/http';
 
 import { HomeComponent }  from './home/home.component';
 
+
+
 @NgModule({
   imports:      [ 
   	BrowserModule,

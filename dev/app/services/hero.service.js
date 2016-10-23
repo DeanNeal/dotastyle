@@ -25,18 +25,12 @@ var HeroService = (function () {
         this.heroesUrl = 'app/heroes'; // URL to web API
     }
     HeroService.prototype.getMainData = function () {
-        var _this = this;
         return this.http.get('http://www.dotastyle.com/api/getmaindata')
             .map(function (res) {
-            _this.response;
+            // this.response;
             return res.json();
         });
     };
-    // getHeroes (): Observable<Hero[]> {
-    //   return this.http.get(this.heroesUrl)
-    //                   .map(this.extractData)
-    //                   .catch(this.handleError);
-    // }
     HeroService.prototype.extractData = function (res) {
         var body = res.json();
         return body.data || {};

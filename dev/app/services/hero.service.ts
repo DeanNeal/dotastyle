@@ -13,28 +13,23 @@ class Hero {
     ){}
 }
 
-
 @Injectable()
 export class HeroService {
   private heroesUrl = 'app/heroes';  // URL to web API
   constructor (private http: Http) {}
 
 
-    getMainData (): Observable<Hero[]>{
+    getMainData (){
       
        return this.http.get('http://www.dotastyle.com/api/getmaindata')
             .map((res:Response) => {
-              this.response;
+              // this.response;
+
               return res.json()
             });
        
     }
 
-  // getHeroes (): Observable<Hero[]> {
-  //   return this.http.get(this.heroesUrl)
-  //                   .map(this.extractData)
-  //                   .catch(this.handleError);
-  // }
   private extractData(res: Response) {
     let body = res.json();
     return body.data || { };

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { HeroService } from 'dev/app/services/hero.service';
+import { HeroService }  from '../services/hero.service';
 
 @Component({
   selector: 'my-home',
@@ -9,7 +9,7 @@ import { HeroService } from 'dev/app/services/hero.service';
    providers: [HeroService]
 })
 export class HomeComponent {
-
+	heroes = [];
 	constructor (
 		private heroService: HeroService
 	) {}
@@ -18,7 +18,13 @@ export class HomeComponent {
     console.log('Hello Home');
 
     this.heroService.getMainData().subscribe(response => {
+    	 
     	this.heroes = response.heroes;
+    	this.radiantStrength = response.heroes.filter(item=> item.type == 'radiant-strength');
+      this.radiantAgility = response.heroes.filter(item=> item.type == 'radiant-agility');
+      this.radiantIntelligence = response.heroes.filter(item=> item.type == 'radiant-intelligence');
+      
+
     });
   }
 
