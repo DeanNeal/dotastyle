@@ -1,0 +1,326 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+html ,body{
+	width: 100%;
+	height: 100%;
+	min-height: 768px;
+}
+body{
+	background: #222;
+	&.root{
+		//background: url(http://images8.alphacoders.com/403/403171.jpg);
+	}
+	&.heroes{
+		//background: url();
+	}
+	&.matches{
+		//background: #37394C;
+		//background: url(http://wallpapersdota2.com/wp-content/uploads/2014/10/wallpapersdota2.com-274.jpg);
+	}
+	&.news{
+		//background: url();
+	}
+	&.profile{
+
+	}
+	&.profile-matches-detail{
+		.sidebar li[data-url="profile"]{
+			
+		}
+	}
+}
+.full_height{
+	height: 100%;
+}
+ul{
+	list-style: none;
+}
+.overflow{
+	overflow: hidden;
+}
+h3{
+	font-family: Open sans;
+	margin-bottom: 20px;
+	text-transform: uppercase;
+	font-weight: 300;
+}
+.global_container{
+    padding-left: 140px;
+    padding-top: 70px;
+    height: 100%;
+}
+
+.container{
+	margin: 0 auto;
+	max-width: 90%;
+	min-width: 860px;
+	padding: 0px 20px;
+    color: #fff;
+	height: 100%;
+    // @include respond-to(handhelds) { width: 980px ;}
+    // @include respond-to(medium-screens) { max-width: 1170px; }
+    //@include respond-to(wide-screens) { max-width: 90% }
+}
+.float_right{
+	float: right;
+}
+
+
+
+
+a.active{
+	background: #fff;
+	color: #000;
+	box-shadow: none;
+}
+.sidebar{
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	background: #191818;
+	box-shadow: 0 0 23px 1px #000;
+	z-index: 1001;
+	.logo{
+		position: relative;
+		img{
+			width: 140px;
+			padding: 17px;
+		}
+		.sub-menu{
+			-webkit-transition: all 1s;
+			-moz-transition: all 1s;
+			-o-transition: all 1s;
+			transition: all 1s;
+			display: none;
+			position: absolute;
+			left: 0px;
+			top: 0;
+			background: #191818;
+			width: 100%;
+			ul{	
+				li{
+					color: #fff;
+					padding: 10px;
+					float: left;
+					width: 50%;
+					font-family: 'Open sans';
+					font-weight: 300;
+					text-transform: uppercase;
+					text-decoration: none;
+					//letter-spacing: 4px;
+					font-size: 12px;
+					color: #B7B0AA;
+				}
+			}
+		}
+		&:hover{
+			.sub-menu{
+				display: block;
+				left: 140px;
+			}
+		}
+	}
+	ul{
+		list-style: none;
+		li{
+
+			a{
+				&:hover{
+					background: #333;
+				}
+				&[data-active="true"]{
+					background: #fff;
+					color: #000;
+					box-shadow: none;
+				}
+				-webkit-transition: all 0.3s;
+				-moz-transition: all 0.3s;
+				-o-transition: all 0.3s;
+				transition: all 0.3s;
+				font-family: 'Open sans';
+				font-weight: 300;
+				text-transform: uppercase;
+				text-decoration: none;
+				letter-spacing: 4px;
+				font-size: 12px;
+				color: #B7B0AA;
+				display: block;
+				padding: 15px 20px;
+			}
+		}
+	}
+	.socials{
+		position: absolute;
+		bottom: 35px;
+		width: 100%;
+		margin-left: 10px;
+		#vk_like{
+			margin: 10px 0px;
+			width: auto;
+		}
+	}
+	.version{
+		position: absolute;
+		bottom: 8px;
+		color: white;
+		text-align: center;
+		width: 100%;
+		font-family: Open sans;
+		font-size: 12px;
+	}
+}
+
+.footer{
+	padding-left: 150px;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	left: 0;
+	padding-bottom: 10px;
+	font-family: Open sans;
+	font-size: 12px;
+	color: #ccc;
+	background: #222;
+	padding-top: 10px;
+}
+
+.main-preloader{
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #222;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    min-width: 860px;
+    .image{
+        width: 200px;
+        height: 200px;
+        margin: auto;
+        position: absolute;
+        top: 0; left: 140px; bottom: 0; right: 0;
+        background: url(images/preloader1.gif);
+        background-size: cover;
+        text-align: center;
+        h3{
+            position: absolute;
+            bottom: -30px;
+            color: #fff;
+            margin: auto;
+            left: 0;
+            right: 0;
+        }
+    }
+}
+
+.header {
+	width: 100%;
+	min-width: 860px;
+	font-family: Open sans;
+	height: 70px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    .avatar {
+        float: right;
+        margin: 10px;
+        position: relative;
+        &:hover{
+            .sub-menu{
+                opacity: 1;
+            }
+        }
+        .language{
+            float: left;
+            color: #ccc;
+            padding: 10px 30px;
+            font-size: 14px;
+            &:hover{
+                ul{
+                    display: block;
+                }
+            }
+            ul{
+                position: absolute;
+                background: #333;
+                display: none;
+                z-index: 1000;
+                margin-left: -25px;
+                li{
+                    cursor: pointer;
+                    padding: 5px 25px;
+                    &:hover{
+                        background: #444;
+                    }
+                }
+            }
+        }
+        .user-image {
+            width: 50px;
+            float: left;
+            border-radius: 4px;
+            border: 1px solid #313131;
+            margin-right: 15px;
+        }
+        .settings{
+            width: 30px;
+        }
+        .name {
+            font-size: 12px;
+            color: #ccc;
+            float: left;
+        }
+        .status{
+            font-size: 12px;
+            color: #9BE40C;
+        }
+        .sub-menu{
+            position: absolute;
+            background: #3C3B3B;
+            width: 100%;
+            //top: -160px;
+            opacity: 0;
+            -webkit-transition: all 0.5s;
+            -moz-transition: all 0.5s;
+            -o-transition: all 0.5s;
+            transition: all 0.5s;
+            box-shadow: 0 0 5px 1px #111;
+            li{
+                a{
+                    display: block;
+                    padding: 5px;
+                    color: #DEDADA;
+                    font-size: 14px;
+                    text-decoration: none;
+                    &:hover{
+                        background: #444;
+                    }
+                }
+            }
+        }
+        .profile-info {
+            display: inline-block;
+            font-size: 12px;
+            color: #ccc;
+            padding: 10px 0;
+            text-transform: uppercase;
+            margin-left: 8px;
+            .value{
+
+            }
+            .title {
+                font-size: 10px;
+                color: #9E9E9E;
+            }
+        }
+    }
+    ul {
+        list-style: none;
+    }
+}

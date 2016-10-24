@@ -1,4 +1,3 @@
-
 .team {
     width: 100%;
     margin-bottom: 20px;
@@ -44,7 +43,7 @@
             height: 100%;
             position: absolute;
             z-index: -1;
-            background: url(images/dota_icon.png);
+            //background: url(./images/dota_icon.png);
             background-size:30%;
             background-position: center;
             background-repeat: no-repeat;
@@ -83,7 +82,7 @@
   //  display: none;
     width: 25px;
     height: 25px;
-    background: url(images/close-button.png);
+   // background: url(./images/close-button.png);
     background-size: contain;
     float: right;
     margin: 5px;

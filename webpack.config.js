@@ -19,27 +19,39 @@ module.exports = {
         publicPath: '/'
     },
     module: {
-        loaders: [{
-            test: /\.ts$/,
-            loaders: ['awesome-typescript-loader', 'angular2-template-loader']
-        }, 
-        // {
-        //     test: /\.html$/,
-        //     loader: 'html'
-        // }
-        {test: /\.html$/, loader: 'raw'}
-        , {
-            test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
-            loader: 'file?name=assets/[name].[hash].[ext]'
-        }, {
-            test: /\.css$/,
-            exclude: path.join(__dirname, 'dev/app'),//helpers.root('src', 'app'),
-            loader: ExtractTextPlugin.extract('style', 'css?sourceMap')
-        }, {
-            test: /\.css$/,
-            include:  path.join(__dirname, 'dev/app'),//helpers.root('src', 'app'),
-            loader: 'raw'
-        }]
+        loaders: [
+            {
+                test: /\.ts$/,
+                loaders: ['awesome-typescript-loader', 'angular2-template-loader', '@angularclass/hmr-loader']
+            },
+            // { test: /\.ts$/, loader: 'ts-loader' },
+            { 
+                test: /\.html$/, 
+                loader: 'html-loader' 
+            }, 
+            {
+                test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
+                loader: 'file?name=assets/[name].[hash].[ext]'
+            }, {
+                test: /\.css$/,
+                exclude: path.join(__dirname, 'dev/app'),
+                loader: ExtractTextPlugin.extract('style', 'css?sourceMap')
+            }, 
+            // {
+            //     test: /\.scss$/,
+            //     loader: ExtractTextPlugin.extract("raw-loader!sass", {publicPath: 'build/'})
+            // }
+            {
+              test: /\.scss$/,
+              exclude: /node_modules/,
+              loaders: ['raw-loader', 'sass-loader'] // sass-loader not scss-loader
+            }
+            // {
+            //     test: /\.css$/,
+            //     include: path.join(__dirname, 'dev/app'),
+            //     loader: 'raw'
+            // }
+        ]
     },
 
     sassLoader: {
@@ -61,8 +73,8 @@ module.exports = {
         }),
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
-          template: './dev/public/index.html',
-          chunksSortMode: 'dependency'
+            template: './index.html',
+            chunksSortMode: 'dependency'
         }),
         new CopyWebpackPlugin([{
             context: 'dev/public/images',
@@ -74,7 +86,7 @@ module.exports = {
         //   name: "vendor"
         // })
         new webpack.optimize.CommonsChunkPlugin({
-          name: ['vendor', 'polyfills']
+            name: ['vendor', 'polyfills']
         })
 
     ],
@@ -88,7 +100,7 @@ module.exports = {
         extensions: ['', '.js', '.ts', 'html']
     },
     devServer: {
-        contentBase: './build',
+        // contentBase: './build',
         port: "8080",
         colors: true,
         historyApiFallback: true,

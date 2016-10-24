@@ -8,8 +8,8 @@ import { TopPanelComponent }  from './top-panel/top-panel.component';
 
 @Component({
   selector: 'my-home',
-  templateUrl: './dev/app/home/home.component.html',
-  styleUrls:  ['./dev/scss/styles.css', './dev/app/home/home.component.css'],
+  templateUrl: './home.component.html',
+  styleUrls:  ['./home.component.scss'],
   providers: [HeroService]
 })
 export class HomeComponent {
@@ -49,13 +49,13 @@ export class HomeComponent {
   }
 
   onHeroClick(hero) {
-
+debugger
     if(this.selectedHeroes.length < 5 && !hero.selected){
       hero.selected = true;
       this.selectedHeroes.push(hero);
     }
 
-    this.topPanel.onHeroClick(this.selectedHeroes);
+    this.topPanel.onHeroClick(hero);
 
 
   //  this.heroService.getAntiPick(/* _.pluck(this.selectedHeroes, 'localized_name')*/).subscribe(response => {

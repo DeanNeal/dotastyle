@@ -1,10 +1,15 @@
 <div class="team my_team unselectable">
 
     <figure class="team_hero" *ngFor="let hero of selectedHeroes">
-        <div class="hero_image" style="border-color:rgba(255,255,255,.5);" [ngStyle]="{background: 'url(http://www.dotastyle.com/back/assets/img/heroes/vert/' + hero.id + '.jpg)'}">
+	
+        <div *ngIf="hero.id" class="hero_image" style="border-color:rgba(255,255,255,.5);" [ngStyle]="{background: 'url(http://www.dotastyle.com/back/assets/img/heroes/vert/' + hero.id + '.jpg)'}">
             <div class="button clear_hero" (click)="onRemoveClick(hero, $event)"></div>
             <div class="hero_label">{{hero.localized_name}}</div>
         </div>
+    
+		<div *ngIf="!hero.id" class="hero_image" style="border-color:rgba(255,255,255,.5);">
+		</div>
+    	
     </figure>
 
 </div>
