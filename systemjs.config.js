@@ -23,8 +23,12 @@
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
       // other libraries
       'rxjs':                      'npm:rxjs',
+      'lodash': 'npm:lodash',
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api',
     },
+    // bundles: {
+    //   'build/core': ['dev/app']
+    // },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
       app: {
@@ -32,6 +36,9 @@
         defaultExtension: 'js'
       },
       rxjs: {
+        defaultExtension: 'js'
+      },
+      lodash: {
         defaultExtension: 'js'
       },
       'angular-in-memory-web-api': {

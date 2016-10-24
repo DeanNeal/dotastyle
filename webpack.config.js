@@ -22,10 +22,13 @@ module.exports = {
         loaders: [{
             test: /\.ts$/,
             loaders: ['awesome-typescript-loader', 'angular2-template-loader']
-        }, {
-            test: /\.html$/,
-            loader: 'html'
-        }, {
+        }, 
+        // {
+        //     test: /\.html$/,
+        //     loader: 'html'
+        // }
+        {test: /\.html$/, loader: 'raw'}
+        , {
             test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
             loader: 'file?name=assets/[name].[hash].[ext]'
         }, {
@@ -62,17 +65,17 @@ module.exports = {
           chunksSortMode: 'dependency'
         }),
         new CopyWebpackPlugin([{
-            context: 'dev/img',
+            context: 'dev/public/images',
             from: '**/*',
-            to: 'img'
+            to: 'images'
         }]),
-        new webpack.optimize.CommonsChunkPlugin({
-          //name: ['app', 'vendor', 'polyfills']
-          name: "vendor"
-        })
         // new webpack.optimize.CommonsChunkPlugin({
-        //   name: ['vendor', 'polyfills']
+        //   //name: ['app', 'vendor', 'polyfills']
+        //   name: "vendor"
         // })
+        new webpack.optimize.CommonsChunkPlugin({
+          name: ['vendor', 'polyfills']
+        })
 
     ],
     //  devtool: 'source-map',
@@ -82,10 +85,10 @@ module.exports = {
             // ymaps: 'vendor/angular-ymaps.js',
         },
         modulesDirectories: ['node_modules'],
-        extensions: ['', '.js', '.ts']
+        extensions: ['', '.js', '.ts', 'html']
     },
     devServer: {
-        // contentBase: './dev/public',
+        contentBase: './build',
         port: "8080",
         colors: true,
         historyApiFallback: true,
