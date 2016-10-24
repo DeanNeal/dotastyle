@@ -11,14 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 require('rxjs/add/operator/map');
-var Hero = (function () {
-    function Hero(id, author, text) {
-        this.id = id;
-        this.author = author;
-        this.text = text;
-    }
-    return Hero;
-}());
 var HeroService = (function () {
     function HeroService(http) {
         this.http = http;
@@ -26,6 +18,13 @@ var HeroService = (function () {
     }
     HeroService.prototype.getMainData = function () {
         return this.http.get('http://www.dotastyle.com/api/getmaindata')
+            .map(function (res) {
+            // this.response;
+            return res.json();
+        });
+    };
+    HeroService.prototype.getAntiPick = function (params) {
+        return this.http.post('http://dotastyle.com/main/hero_picked/team', params)
             .map(function (res) {
             // this.response;
             return res.json();

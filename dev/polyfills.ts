@@ -1,8 +1,11 @@
+import 'core-js/client/shim';
+import 'reflect-metadata';
+
 import 'core-js/es6';
 import 'core-js/es7/reflect';
-import 'zone.js/dist/zone';
+require('zone.js/dist/zone');
 
-
+import 'ts-helpers';
 // import 'core-js/client/shim';
 // import 'reflect-metadata';
 
@@ -14,5 +17,5 @@ import 'zone.js/dist/zone';
 //} else {
   // Development
   //Error['stackTraceLimit'] = Infinity;
-  //require('zone.js/dist/long-stack-trace-zone');
+  require('zone.js/dist/long-stack-trace-zone');
 //}

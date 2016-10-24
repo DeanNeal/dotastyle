@@ -1,61 +1,18 @@
 <div class="pick_page">
-    <div class="team my_team unselectable">
-        <figure class="team_hero">
-            <div class="hero_image" style="border-color:rgba(255,255,255,.5);"></div>
-        </figure>
-        <figure class="team_hero ">
-            <div class="hero_image " style="border-color:rgba(255,255,255,.5);"></div>
-        </figure>
-        <figure class="team_hero">
-            <div class="hero_image" style="border-color:rgba(255,255,255,.5);"></div>
-        </figure>
-        <figure class="team_hero ">
-            <div class="hero_image " style="border-color:rgba(255,255,255,.5);"></div>
-        </figure>
-        <figure class="team_hero">
-            <div class="hero_image" style="border-color:rgba(255,255,255,.5);"></div>
-        </figure>
+
+    <top-panel></top-panel>
+    <div class="grid unselectable">
+
+        <div class="heroes-group" *ngFor="let heroesGroup of heroes">
+            <div class="hero" *ngFor="let hero of heroesGroup" (click)="onHeroClick(hero)">
+                <div class="spriteImage {{hero.name}}" [class.selected]="hero.selected" [ngStyle]="{background: 'url(http://www.dotastyle.com/back/assets/img/heroes/vert/' + hero.id + '.jpg)'}">
+                    <div class="tooltip_image" [ngStyle]="{background: 'url(http://www.dotastyle.com/back/assets/img/heroes/vert/' + hero.id + '.jpg)'}">
+                        <div class="tooltip_image_name">{{hero.localized_name}}<i class="tooltip_image_type"></i></div>
+                        <div class="tooltip_image_skils"></div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="grid unselectable ">
-                
-            <div class="heroes-group radiantStrength">
-                <div class="hero" *ngFor="let hero of radiantStrength">
-                    <div class="spriteImage {{hero.name}}" [ngStyle]="{background: 'url(http://www.dotastyle.com/back/assets/img/heroes/vert/' + hero.id + '.jpg)'}">
-                        <div class="tooltip_image">
-                            <div class="tooltip_image_name">{{hero.localized_name}}<i class="tooltip_image_type"></i></div>
-                            <div class="tooltip_image_skils">
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="heroes-group radiantAgility">
-                <div class="hero" *ngFor="let hero of radiantAgility">
-                    <div class="spriteImage {{hero.name}}" [ngStyle]="{background: 'url(http://www.dotastyle.com/back/assets/img/heroes/vert/' + hero.id + '.jpg)'}">
-                        <div class="tooltip_image">
-                            <div class="tooltip_image_name">{{hero.localized_name}}<i class="tooltip_image_type"></i></div>
-                            <div class="tooltip_image_skils">
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="heroes-group radiantIntelligence">
-                <div class="hero" *ngFor="let hero of radiantIntelligence">
-                    <div class="spriteImage {{hero.name}}" [ngStyle]="{background: 'url(http://www.dotastyle.com/back/assets/img/heroes/vert/' + hero.id + '.jpg)'}">
-                        <div class="tooltip_image">
-                            <div class="tooltip_image_name">{{hero.localized_name}}<i class="tooltip_image_type"></i></div>
-                            <div class="tooltip_image_skils">
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+    </div>
 </div>

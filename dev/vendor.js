@@ -8,6 +8,7 @@ require('@angular/http');
 require('@angular/router');
 // RxJS
 require('rxjs');
+require('@angularclass/hmr');
 // import '@angularclass/hmr';
 // Other vendors for example jQuery, Lodash or Bootstrap
 // You can import js, ts, css, sass, ...

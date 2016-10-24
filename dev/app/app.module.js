@@ -14,6 +14,8 @@ var app_component_1 = require('./app.component');
 var router_1 = require('@angular/router');
 var http_1 = require('@angular/http');
 var home_component_1 = require('./home/home.component');
+var news_component_1 = require('./news/news.component');
+var top_panel_component_1 = require('./home/top-panel/top-panel.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -23,12 +25,13 @@ var AppModule = (function () {
                 platform_browser_1.BrowserModule,
                 router_1.RouterModule.forRoot([
                     { path: '', component: home_component_1.HomeComponent },
-                    { path: 'pick', component: home_component_1.HomeComponent }
+                    { path: 'pick', component: home_component_1.HomeComponent },
+                    { path: 'news', component: news_component_1.NewsComponent }
                 ]),
                 http_1.HttpModule,
                 http_1.JsonpModule
             ],
-            declarations: [app_component_1.AppComponent, home_component_1.HomeComponent],
+            declarations: [app_component_1.AppComponent, home_component_1.HomeComponent, news_component_1.NewsComponent, top_panel_component_1.TopPanelComponent],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

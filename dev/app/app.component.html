@@ -1,33 +1,46 @@
 <div class="global_container">
 
-	<div class="sidebar">
-	    <div>
-	        <div>
-	            <div class="logo">
-	                <a href="#"><img border="0" src="build/images/en_dota_logo.png"></a>
-	            </div>
-	            <div class="sidebar-menu">
-	                <ul class="nav navbar-nav">
-	                    <li *ngFor='let value of menuLinks'>
-	                    	<a routerLink="/{{value.link}}" routerLinkActive="active">{{value.name}}</a>
-	                    </li>
-	                </ul>
-	            </div>
-	            <div class="socials">
-	                <div id="vk_like"></div>
-	                <div id="fb_like">
-	                    <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fdotastyle.com%2F&amp;width=110&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;width:110px;" allowTransparency="true"></iframe>
-	                </div>
-	            </div>
-	            <div class="version">v0.3</div>
-	        </div>
-	        <span (click)="onClick()">{{master}}</span>
-	    </div>
-
-
-	</div>
-	<div class="container">	
-		<!-- Routed views go here -->
-		<router-outlet></router-outlet>
-	</div>
+    <div class="container">
+        <!-- Routed views go here -->
+        <router-outlet></router-outlet>
+    </div>
+    <div class="header">
+        <div class="wrapper">
+            <div class="avatar">
+                <a href="http://dotastyle.com/api/steam_register">
+                    <img src="build/images/sing_in_small.png" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar">
+        <div>
+            <div>
+                <div class="logo">
+                    <a href=""><img border="0" src="build/images/en_dota_logo.png"></a>
+                </div>
+                <div class="sidebar-menu">
+                    <ul class="nav navbar-nav">
+                        <li *ngFor='let value of menuLinks'>
+                            <a routerLink="/{{value.link}}" routerLinkActive="active">{{value.name}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="socials">
+                    <div id="vk_like"></div>
+                    <div id="fb_like">
+                        <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fdotastyle.com%2F&amp;width=110&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;width:110px;" allowTransparency="true"></iframe>
+                    </div>
+                </div>
+                <div class="version">v0.3</div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="container">
+            <p class="text-muted">
+                Dota 2 is a registered trademark of Valve Corporation. This site is not affiliated with Valve Corporation. All game images and names are property of Valve Corporation.</p>
+            <div class="copyright">© 2013-2015 dotastyle.com</div>
+        </div>
+    </div>
 </div>

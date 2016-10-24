@@ -218,7 +218,7 @@
 .button.clear_hero {
   width: 25px;
   height: 25px;
-  background: url(images/close-button.png);
+  background: url(build/images/close-button.png);
   background-size: contain;
   float: right;
   margin: 5px;

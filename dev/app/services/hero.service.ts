@@ -1,17 +1,9 @@
 import { Injectable }     from '@angular/core';
 import { Http, Response } from '@angular/http';
-// import { Hero }           from './hero';
 import { Observable }     from 'rxjs/Observable';
 
 import 'rxjs/add/operator/map';
 
-class Hero {
-    constructor(
-        public id: Date, 
-        public author: string, 
-        public text:string
-    ){}
-}
 
 @Injectable()
 export class HeroService {
@@ -22,6 +14,16 @@ export class HeroService {
     getMainData (){
       
        return this.http.get('http://www.dotastyle.com/api/getmaindata')
+            .map((res:Response) => {
+              // this.response;
+
+              return res.json()
+            });
+       
+    }
+
+    getAntiPick (params){
+       return this.http.post('http://dotastyle.com/main/hero_picked/team', params)
             .map((res:Response) => {
               // this.response;
 

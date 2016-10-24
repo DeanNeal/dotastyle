@@ -13,13 +13,16 @@ var AppComponent = (function () {
     function AppComponent() {
     }
     AppComponent.prototype.ngOnInit = function () {
-        this.menuLinks = [{ name: 'Pick', link: 'pick' }];
+        this.menuLinks = [
+            // {name: 'Pick', link: 'pick'}, 
+            { name: 'News', link: 'news' }
+        ];
     };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
             templateUrl: './dev/app/app.component.html',
-            styleUrls: ['./dev/scss/styles.css']
+            styleUrls: ['./dev/scss/styles.css', './dev/app/app.component.css']
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
