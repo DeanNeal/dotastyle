@@ -23,8 +23,6 @@ export class HomeComponent {
   radiantAgility = [];
   radiantIntelligence = [];
 
-  selectedHeroes = [];
-
   // @Output() notify: EventEmitter<string> = new EventEmitter<string>();
 
   @ViewChild(TopPanelComponent)
@@ -49,14 +47,9 @@ export class HomeComponent {
   }
 
   onHeroClick(hero) {
-debugger
-    if(this.selectedHeroes.length < 5 && !hero.selected){
-      hero.selected = true;
-      this.selectedHeroes.push(hero);
+    if(!hero.selected){
+      this.topPanel.onHeroClick(hero);
     }
-
-    this.topPanel.onHeroClick(hero);
-
 
   //  this.heroService.getAntiPick(/* _.pluck(this.selectedHeroes, 'localized_name')*/).subscribe(response => {
            

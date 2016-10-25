@@ -2,27 +2,27 @@
 	margin-right: 0px;
 }
 .grid {
-    .radiantStrength,
-    .direStrength {
+    .radiant-strength,
+    .dire-strength {
         .tooltip_image {
             &_type {
-                background: url(images/strength_ico.png);
+                background: url(./images/strength_ico.png);
             }
         }
     }
-    .radiantAgility,
-    .direAgility {
+    .radiant-agility,
+    .dire-agility {
         .tooltip_image {
             &_type {
-                background: url(images/agility_ico.png);
+                background: url(./images/agility_ico.png);
             }
         }
     }
-    .radiantIntelligence,
-    .direIntelligence {
+    .radiant-intelligence,
+    .dire-intelligence {
         .tooltip_image {
             &_type {
-                background: url(images/intelligance_ico.png);
+                background: url(./images/intelligance_ico.png);
             }
         }
     }
@@ -40,7 +40,7 @@
             // height: 100%;
             width: 100%;
             padding-top: 100%;
-            background-image: url(images/sprite.png);
+            background-image: url(./images/sprite.png);
             background-size: cover!important;
             background-position: center!important;
             box-shadow: inset 1px 1px 1px 0px #908C8C;

@@ -20,22 +20,34 @@ export class TopPanelComponent {
   }
 
   onHeroClick(hero) {
+    this.selectedHeroes.forEach((item, i)=>{
+       if(!item.id){
+         hero.selected = true;
+       }
+    });
+
     for (var i = 0; i < this.selectedHeroes.length; ++i) {
         if(!this.selectedHeroes[i].id){
           this.selectedHeroes[i] = hero;
+          this.selectedHeroes[i].colorScheme = this.getRandomColor();
           break;
         }
     }
   }
   
   onRemoveClick(hero) {
-    hero.selected = false;
+  
     this.selectedHeroes.forEach((item, i)=>{
        if(item.id === hero.id){
+         hero.selected = false;
          this.selectedHeroes[i] = {};
        }
     });
 
   }
+
+      getRandomColor() {
+        return 'rgba(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',0.5)';
+    }
 
 }
