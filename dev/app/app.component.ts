@@ -15,7 +15,9 @@ export class AppComponent {
 	ngOnInit() {
 		this.menuLinks = [
 			// {name: 'Pick', link: 'pick'}, 
-			{name: 'News', link: 'news'}
+			{name: 'News', link: 'news'},
+			{name: 'Profile', link: 'profile'}
+			// {name: 'Heroes', link: 'heroes'}
 		];	
 	}
 

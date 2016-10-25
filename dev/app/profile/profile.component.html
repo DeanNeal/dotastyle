@@ -1,0 +1,80 @@
+<div class="profile-wrapper">
+    <div class="profile">
+        <h3>Profile</h3>
+        <div class="main-info">
+ <!--            <div class="user-image" style="background: url(<%=avatarfull%>)"></div> -->
+            <div class="account-name">
+                <%=personaname%>
+                <div class="status">Online</div>
+            </div>
+            <div class="friends-link">
+                <img src="/images/friends.jpg" alt="" title="friens">
+            </div>
+            <div class="float_right">
+                <div class="profile-info">
+                    <div class="title">Total games</div>
+                    <div class="value">1907</div>
+                </div>
+                <div class="profile-info">
+                    <div class="title">Victories</div>
+                    <div class="value">999</div>
+                </div>
+                <div class="profile-info">
+                    <div class="title">Solo rating</div>
+                    <div class="value">2600</div>
+                </div>
+                <div class="profile-info">
+                    <div class="title">Party rating</div>
+                    <div class="value">2600</div>
+                </div>
+                <div class="profile-info profile-info-id">
+                    <button class="edit">Edit</button>
+                    <div class="id"><img src="/images/steam.png" alt="">ID: <span><%=account_id%></span></div>
+                </div>
+            </div>
+        </div>
+        <div class="left_block">
+            <div class="favorite-heroes">
+                <div style="background: url(http://www.dotastyle.com/back/assets/img/heroes/vert/1.jpg)"></div>
+                <div style="background: url(http://www.dotastyle.com/back/assets/img/heroes/vert/2.jpg)"></div>
+                <div style="background: url(http://www.dotastyle.com/back/assets/img/heroes/vert/3.jpg)"></div>
+            </div>
+            <div class="play-style">
+                <div class="title">PLAY STYLE <span>MOST RECENT 20 GAME(S)</span></div>
+                <div class="star">
+                    <div id="star" style="min-width: 400px; max-width: 600px; height: 400px; margin: 0 auto"></div>
+                </div>
+                <div class="play-style-table">
+                    <div class="right float_right">
+                        <div class="stats"><span>480</span><span>Avg GPM</span></div>
+                        <div class="stats"><span>501</span><span>Avg XPM</span></div>
+                        <div class="stats"><span>242</span><span>AVG Last Hits</span></div>
+                        <div class="stats line"></div>
+                        <div class="stats"><span>1</span><span>Rampages</span></div>
+                        <div class="stats"><span>23</span><span>Triple Kills</span></div>
+                        <div class="stats"><span>9</span><span>First blood</span></div>
+                        <div class="stats"><span>14</span><span>Couriers Killed</span></div>
+                        <div class="stats"><span>0</span><span>Aegises Snatched</span></div>
+                        <div class="stats"><span>0</span><span>Cheeses Eaten</span></div>
+                        <div class="stats"><span>30</span><span>Camps Stacked</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right-block">
+            <div class="last_matches">
+                <div class="table-header">
+                    <span class="col">Date</span>
+                    <span class="col">Hero</span>
+                    <span class="col">Match Id</span>
+                    <span class="col">Type <button class="update">Update</button></span>
+                </div>
+                <div class="preloader">
+                    <div class="title">Please waiting...</div>
+                </div>
+                <div class="scrollable"></div>
+            </div>
+        </div>
+        <div class="popup"></div>
+    </div>
+</div>
