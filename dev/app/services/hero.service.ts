@@ -9,7 +9,7 @@ import 'rxjs/add/operator/map';
 export class HeroService {
   private heroesUrl = 'app/heroes';  // URL to web API
   constructor (private http: Http) {}
-
+    url = 'http://www.dotastyle.com/api/';
 
     getMainData (){
       
@@ -30,6 +30,26 @@ export class HeroService {
               return res.json()
             });
        
+    }
+
+    getSteamInfo () {
+
+        return this.http.post(this.url + 'steam_get_userinfo', {steam_id: 76561198112299840})
+             .map((res:Response) => {
+               // this.response;
+
+               return res.json()
+             });
+    }
+
+    getLastMatches () {  
+       let accountId = 76561198112299840;
+      return this.http.get(this.url + 'getlastmatches/' + accountId)
+           .map((res:Response) => {
+             // this.response;
+
+             return res.json()
+           });
     }
 
   private extractData(res: Response) {

@@ -1,0 +1,93 @@
+<div>
+<!-- <% var sides = [{title: 'The radiant', className: 'radiant'}, {title:'The dire', className: "dire"}] %>
+ --><h2>WINNER: 
+<!-- 	<%if (data.radiant_win) {%> <span class="radiant">RADIANT</span> <%} else {%> <span class="dire">DIRE</span> <% } %> -->
+</h2>
+<div class="match_detail">
+
+		<div class="info float_right">
+<!-- 			<div>Match ID:<br><span> <%=data.match_id%></span></div>
+			<div>Game type <br><span><%=Helpers.getLobbieById(data.lobby_type)%></span></div>
+			<div>Game mode <br><span><%=Helpers.getModeById(data.game_mode)%></span></div>
+			<div>Duration <br><span><%=Helpers.getTime(data.duration)%></span></div>
+			<div>Time <br><span><%=Helpers.getDate(data.start_time)%></span></div> -->
+		</div>
+
+<!-- 		<% _.each(sides, function(item, index) { %>    -->
+<!-- 			<h3 class="table_name <%=item.className%>"><%=item.title%></h3> -->
+			<table>
+				<tr>
+					<td>Player</td>
+					<td>Level</td>
+					<td>Hero</td>
+					<td>K</td>
+					<td>D</td>
+					<td>A</td>
+					<td>Items</td>
+					<td>Gold</td>
+					<td>Denies</td>
+					<td>Last hits</td>
+					<td>HD</td>
+					<td>TD</td>
+					<td>GPM</td>
+					<td>XPM</td>
+				</tr>
+
+<!-- 				<% _.each(data.players, function(player, i) { %>   
+					<%var condition = index == 0 ? i < 5 : i >= 5 %>
+					<%if (condition) {%>
+						<tr>
+							<td class="avatar">
+								<div class="player">
+									<i class="show-info"></i>
+									<% if(player.steamid) {%>
+										<img src="<%=player.avatar%>" alt="">
+										<span><%=player.personaname%></span>
+									<% } else { %>
+										<img src="/images/noavatar.png" alt="">
+										<span>anonymous</span>
+									<% } %>
+								</div>
+							</td>
+							<td><%=player.level%></td>
+							<td class="hero-image"><img src="http://www.dotastyle.com/back/assets/img/heroes/lg/<%=Helpers.getHeroById(player.hero_id).id%>.png" alt=""><%=Helpers.getHeroById(player.hero_id).localized_name%></td>
+							<td><%=player.kills%></td>
+							<td><%=player.deaths%></td>
+							<td><%=player.assists%></td>
+							<td class="items">
+								<% for(var j=0; j<=5;j++) {%>
+									<%var playerItem = player['item_'+j]%>
+									<%if (playerItem) {%>							
+										<img class="item" src='http://dotastyle.com/back/assets/img/items/lg/<%=playerItem%>.png' data-item-id="<%=playerItem%>">
+									<% } %>
+								<% } %>
+							</td>
+							<td class="gold"><%=player.gold%></td>
+							<td><%=player.denies%></td>
+							<td><%=player.last_hits%></td>
+							<td><%=player.hero_damage%></td>
+							<td><%=player.tower_damage%></td>
+							<td><%=player.gold_per_min%></td>
+							<td><%=player.xp_per_min%></td>
+						</tr>
+					<% } %>
+				<% }); %> -->
+			</table>
+	<!--  	<% }); %> -->
+
+	 	<div class="hero-detailed">rewrr</div>
+
+<!-- 		<table>
+		 	<% _.each(data.players, function(player, i) { %>  
+				<tr>
+					<% _.each(player.ability_upgrades, function(ability, i) { %>  
+						<td> <div> <%=ability.ability%></div> <div><%=ability.time%></div> </td>
+					<% }); %> 
+				</tr>
+		 	<% }); %> 
+	 	</table> -->
+</div>
+<!-- <button class="watch-match">Replay</button>-->
+
+
+</div>

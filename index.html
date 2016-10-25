@@ -13,13 +13,50 @@
   </body>
 
   <style>
-      body{
-          background: #222;
-      }
       *{
           padding: 0;
           margin: 0;
           box-sizing: border-box;
+      }
+      html ,body{
+        width: 100%;
+        height: 100%;
+        min-height: 768px;
+      }
+      body{
+        background: #222;
+        &.root{
+          //background: url(http://images8.alphacoders.com/403/403171.jpg);
+        }
+        &.heroes{
+          //background: url();
+        }
+        &.matches{
+          //background: #37394C;
+          //background: url(http://wallpapersdota2.com/wp-content/uploads/2014/10/wallpapersdota2.com-274.jpg);
+        }
+        &.news{
+          //background: url();
+        }
+        &.profile{
+
+        }
+        &.profile-matches-detail{
+          .sidebar li[data-url="profile"]{
+            
+          }
+        }
+      }
+      .fl-right{
+        float: right;
+      }
+
+      .fl-left{
+        float: right;
+      }
+
+      .full_height{
+        height: 100%;
       }
   </style>
 

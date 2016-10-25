@@ -44,7 +44,7 @@
                 <div class="star">
                     <div id="star" style="min-width: 400px; max-width: 600px; height: 400px; margin: 0 auto"></div>
                 </div>
-                <div class="play-style-table">
+                <div class="play-style-table fl-right">
                     <div class="right float_right">
                         <div class="stats"><span>480</span><span>Avg GPM</span></div>
                         <div class="stats"><span>501</span><span>Avg XPM</span></div>
@@ -69,10 +69,33 @@
                     <span class="col">Match Id</span>
                     <span class="col">Type <button class="update">Update</button></span>
                 </div>
-                <div class="preloader">
+                <div class="preloader" *ngIf="isLoading">
                     <div class="title">Please waiting...</div>
                 </div>
-                <div class="scrollable"></div>
+                <div class="scrollable" *ngIf="!isLoading && lastMatches.matches">
+                    <div *ngFor="let match of lastMatches.matches">
+
+
+                       <!--          <% _.each(data.matches, function(match, i) { %>   --> 
+            <!--                         <% var hero = Helpers.getHeroById(_.findWhere(match.players, {'account_id': accountId}).hero_id);  %> -->
+                                    <div class="last-match">
+                                        <a routerLink="matches/{{match.match_id}}">
+                                            <div class="col">{{match.start_time}}</div>
+          <!--                   
+                                            <div class="col" *ngIf="getHeroById()">
+                                                <img class="image" src="http://www.dotastyle.com/back/assets/img/heroes/lg/<%= hero.id %>.png" alt=""><%= hero.localized_name %>
+                                            </div> -->
+                          
+                                            <div class="col result">
+                                                <div>{{match.match_id}}</div>
+                                            </div>
+                                            <div class="col">{{match.lobby_type}}</div>
+                                        </a>
+                                    </div>
+                       <!--          <% }); %> -->
+
+                    </div>
+                </div>
             </div>
         </div>
         <div class="popup"></div>

@@ -10,6 +10,7 @@ import { routing } from './app.routing';
 import { HomeComponent }  from './home/home.component';
 import { NewsComponent }  from './news/news.component';
 import { ProfileComponent }  from './profile/profile.component';
+import { MatchInfoComponent }  from './profile/match-info/match-info.component';
 
 
 import { TopPanelComponent }  from './home/top-panel/top-panel.component';
@@ -22,7 +23,7 @@ import { TopPanelComponent }  from './home/top-panel/top-panel.component';
   	HttpModule,
   	JsonpModule
   ],
-  declarations: [ AppComponent , HomeComponent, NewsComponent, ProfileComponent, TopPanelComponent],
+  declarations: [ AppComponent , HomeComponent, NewsComponent, ProfileComponent, MatchInfoComponent, TopPanelComponent],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule {
