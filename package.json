@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "@angularclass/hmr-loader": "^3.0.2",
+    "@types/jquery": "^2.0.33",
     "concurrently": "^3.0.0",
     "lite-server": "^2.2.2",
     "typescript": "^2.0.3",

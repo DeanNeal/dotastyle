@@ -1,5 +1,4 @@
-<div class="global_container">
-
+<div class="global_container" *ngIf="activeChildRoute">
     <div class="container">
         <!-- Routed views go here -->
         <router-outlet></router-outlet>
@@ -40,7 +39,7 @@
         <div class="container">
             <p class="text-muted">
                 Dota 2 is a registered trademark of Valve Corporation. This site is not affiliated with Valve Corporation. All game images and names are property of Valve Corporation.</p>
-            <div class="copyright">© 2013-2015 dotastyle.com</div>
+            <div class="copyright">© 2013-2016 dotastyle.com</div>
         </div>
     </div>
 </div>

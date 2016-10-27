@@ -1,0 +1,176 @@
+.matches_detail_wrapper {
+    font-family: Open sans;
+    margin-top: 20px;
+    h2 {
+        color: #A2A99E;
+        display: inline-block;
+        font-weight: 400;
+        .radiant {
+            color: #9BE40C;
+        }
+        .dire {
+            color: #E74D08;
+        }
+    }
+    .item-tooltip {
+        background: #444;
+        border: 2px solid #000;
+        position: absolute;
+        padding: 8px 10px;
+        &:after,
+        &:before {
+            right: 100%;
+            top: 30px;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+        }
+        &:after {
+            border-color: rgba(85, 85, 85, 0);
+            border-right-color: #444;
+            border-width: 12px;
+            margin-top: -12px;
+        }
+        &:before {
+            border-color: rgba(0, 0, 0, 0);
+            border-right-color: #000;
+            border-width: 15px;
+            margin-top: -15px;
+        }
+        .title {
+            margin: 0;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+        .ability {
+            padding: 4px 0;
+            border-top: 1px solid #666;
+            border-bottom: 1px solid #666;
+            color: #fff;
+            span {
+                text-transform: uppercase;
+                font-size: 14px;
+            }
+        }
+        .desc {
+            color: #aaa;
+            font-size: 12px;
+        }
+    }
+    .hero-detailed{
+        display: none;
+        background: #444;
+        border: 2px solid #000;
+        position: absolute;
+        padding: 8px 10px;
+    }
+    .watch-match {
+        border: none;
+        padding: 5px;
+        width: 100px;
+        text-align: center;
+        margin: auto;
+        display: block;
+        margin-top: 20px;
+    }
+    .match_detail {
+        padding: 25px;
+        background: rgba(0, 0, 0, 0.5);
+        font-weight: 600;
+        .info {
+            width: 50%;
+            div {
+                color: #A2A99E;
+                font-size: 12px;
+                text-align: right;
+                width: 20%;
+                float: left;
+                span {
+                    font-size: 14px;
+                }
+            }
+        }
+        .table_name {
+            margin: 25px 0 10px 0;
+            font-weight: 600;
+            text-transform: initial;
+            &.radiant {
+                color: #9BE40C;
+            }
+            &.dire {
+                color: #E74D08;
+            }
+        }
+        table {
+            background: rgba(0, 0, 0, 0.5);
+            width: 100%;
+            border-collapse: collapse;
+            tr {
+                &:first-child {
+                    td {
+                        background: #1D2021;
+                        color: #708786;
+                        font-size: 14px;
+                        text-transform: uppercase;
+                        &:first-child {
+                            padding-left: 10px;
+                        }
+                    }
+                }
+                td {
+                    font-size: 14px;
+                    padding: 5px;
+                    color: #99AFAE;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    &:first-child {
+                        width: 20%;
+                    }
+                    &.avatar {
+                        width: 10%;
+                    }
+                    .player {
+                        .show-info {
+                            float: left;
+                            background: url(images/info.png);
+                            width: 15px;
+                            height: 15px;
+                            margin-right: 5px;
+                            background-size: cover;
+                            cursor: pointer;
+                        }
+                        img {
+                            width: 25px;
+                            float: left;
+                            margin-right: 7px;
+                        }
+                    }
+                    &.hero-image {
+                        width: 15%;
+                    }
+                    &.items {
+                        width: 220px;
+                        position: relative;
+                        .item {
+                            width: 27px;
+                        }
+                    }
+                    &.gold {
+                        color: #E7BA01;
+                    }
+                    &.hero-image {
+                        img {
+                            width: 35px;
+                            float: left;
+                            margin-right: 8px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

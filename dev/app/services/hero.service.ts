@@ -8,6 +8,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class HeroService {
   private heroesUrl = 'app/heroes';  // URL to web API
+  public mainData = {};
   constructor (private http: Http) {}
     url = 'http://www.dotastyle.com/api/';
 
@@ -43,11 +44,19 @@ export class HeroService {
     }
 
     getLastMatches () {  
-       let accountId = 76561198112299840;
+       let accountId = 152034112;
       return this.http.get(this.url + 'getlastmatches/' + accountId)
            .map((res:Response) => {
              // this.response;
 
+             return res.json()
+           });
+    }
+
+    getMatchInfo (params) {
+      return this.http.get(this.url + 'getmatchdata/' + params.id)
+           .map((res:Response) => {
+             // this.response;
              return res.json()
            });
     }

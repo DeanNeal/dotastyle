@@ -7,11 +7,11 @@ import { MatchInfoComponent }  from './profile/match-info/match-info.component';
 
 const routes: Routes = [
     { path: '',  component: HomeComponent},
-    { path: '**', component: HomeComponent },
 	{ path: 'pick', component: HomeComponent },
 	{ path: 'news', component: NewsComponent },
 	{ path: 'profile', component: ProfileComponent },
-	{ path: 'profile/matches/:id', component: MatchInfoComponent }
+	{ path: 'profile/matches/:id', component: MatchInfoComponent },
+    { path: '**', component: HomeComponent }
 ];
 
 export const routing = RouterModule.forRoot(routes);
