@@ -15,34 +15,24 @@ import { MatchInfoComponent }  from './profile/match-info/match-info.component';
 
 import { TopPanelComponent }  from './home/top-panel/top-panel.component';
 
+import { HeroService }  from './services/hero.service';
 
-@NgModule({
-  imports:      [ 
-  	BrowserModule,
-    routing,
-  	HttpModule,
-  	JsonpModule
-  ],
-  declarations: [ AppComponent , HomeComponent, NewsComponent, ProfileComponent, MatchInfoComponent, TopPanelComponent],
-  bootstrap:    [ AppComponent ]
-})
-export class AppModule {
-      constructor(
-        public appRef: ApplicationRef
-      ) {}
-      hmrOnInit(store) {
-        console.log('HMR store', store);
-      }
-      hmrOnDestroy(store) {
-        let cmpLocation = this.appRef.components.map(cmp => cmp.location.nativeElement);
-        // recreate elements
-        store.disposeOldHosts = createNewHosts(cmpLocation);
-        // remove styles
-        removeNgStyles();
-      }
-      hmrAfterDestroy(store) {
-        // display new elements
-        store.disposeOldHosts();
-        delete store.disposeOldHosts;
-      }
+function getAppModule(conf) {
+  @NgModule({
+    declarations: [ AppComponent, HomeComponent, NewsComponent, ProfileComponent, MatchInfoComponent, TopPanelComponent],
+    imports:      [ BrowserModule, routing, HttpModule, JsonpModule ],
+    bootstrap:    [ AppComponent ],
+    providers: [ HeroService ]
+  })
+  class AppModule {
+    constructor (
+       private heroService: HeroService
+    ) {
+       this.heroService.mainData = conf;
+    }
+
+  }
+  return AppModule;
 }
+
+export default getAppModule;

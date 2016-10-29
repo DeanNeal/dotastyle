@@ -80,6 +80,10 @@ module.exports = {
             context: 'dev/public/images',
             from: '**/*',
             to: 'images'
+        },{
+           // context: 'dev/main.json',
+           from: 'dev/main.json',
+           to: 'main.json' 
         }]),
         // new webpack.optimize.CommonsChunkPlugin({
         //   //name: ['app', 'vendor', 'polyfills']

@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HeroService }  from '../../services/hero.service';
+// import { HeroService }  from '../../services/hero.service';
 
 @Component({
   selector: 'profile',
   templateUrl: './match-info.component.html',
-  styleUrls:  ['./match-info.component.scss'],
-  providers: [HeroService]
+  styleUrls:  ['./match-info.component.scss']
+  // providers: [HeroService]
 })
 export class MatchInfoComponent {
 	lastMatches = [];
@@ -17,16 +17,16 @@ export class MatchInfoComponent {
   matchInfo = {};
 	constructor (
     private route: ActivatedRoute,
-		private heroService: HeroService
+		// private heroService: HeroService
 	) {}
 
   ngOnInit() {
     this.sides = [{title: 'The radiant', className: 'radiant'}, {title:'The dire', className: "dire"}];
 
     this.sub = this.route.params.subscribe(params => {
-         this.heroService.getMatchInfo(params).subscribe(response => {
-              this.matchInfo = response;
-         });
+         // this.heroService.getMatchInfo(params).subscribe(response => {
+         //      this.matchInfo = response;
+         // });
     });
   }
 

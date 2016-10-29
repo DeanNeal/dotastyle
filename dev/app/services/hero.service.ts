@@ -4,23 +4,29 @@ import { Observable }     from 'rxjs/Observable';
 
 import 'rxjs/add/operator/map';
 
+export type InternalStateType = {
+  [key: string]: any
+};
 
 @Injectable()
 export class HeroService {
   private heroesUrl = 'app/heroes';  // URL to web API
-  public mainData = {};
+  public mainData = {
+    heroes: [],
+    lobbies: []
+  };
+  _state: InternalStateType = { };
   constructor (private http: Http) {}
     url = 'http://www.dotastyle.com/api/';
-
     getMainData (){
-      
+
        return this.http.get('http://www.dotastyle.com/api/getmaindata')
             .map((res:Response) => {
               // this.response;
 
               return res.json()
             });
-       
+
     }
 
     getAntiPick (params){
@@ -30,7 +36,7 @@ export class HeroService {
 
               return res.json()
             });
-       
+
     }
 
     getSteamInfo () {
@@ -43,7 +49,7 @@ export class HeroService {
              });
     }
 
-    getLastMatches () {  
+    getLastMatches () {
        let accountId = 152034112;
       return this.http.get(this.url + 'getlastmatches/' + accountId)
            .map((res:Response) => {
