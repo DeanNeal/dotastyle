@@ -11,14 +11,14 @@
                 <img src="/images/friends.jpg" alt="" title="friens">
             </div>
             <div class="fl-right">
-                <div class="profile-info">
+                <!-- <div class="profile-info">
                     <div class="title">Total games</div>
                     <div class="value">1907</div>
                 </div>
                 <div class="profile-info">
                     <div class="title">Victories</div>
                     <div class="value">999</div>
-                </div>
+                </div> -->
                 <div class="profile-info">
                     <div class="title">Solo rating</div>
                     <div class="value">3600</div>
@@ -28,12 +28,12 @@
                     <div class="value">3200</div>
                 </div>
                 <div class="profile-info profile-info-id">
-                    <button class="edit">Edit</button>
+                    <!-- <button class="edit">Edit</button> -->
                     <div class="id"><img src="/images/steam.png" alt="">ID: <span>152034112</span></div>
                 </div>
             </div>
         </div>
-        <div class="left_block">
+        <!-- <div class="left_block">
             <div class="favorite-heroes">
                 <div style="background: url(http://www.dotastyle.com/back/assets/img/heroes/vert/1.jpg)"></div>
                 <div style="background: url(http://www.dotastyle.com/back/assets/img/heroes/vert/2.jpg)"></div>
@@ -60,7 +60,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="right-block">
             <div class="last_matches">
                 <div class="table-header">
@@ -78,13 +78,13 @@
                             <a routerLink="matches/{{match.match_id}}">
                                 <div class="col">{{match.start_time*1000  | date: "dd.mm.yyyy HH:mm"}}</div>
                                 <div class="col">
-                                    <img class="image" src="http://www.dotastyle.com/back/assets/img/heroes/lg/{{getHeroById(match.players).hero_id}}.png" alt="">
-                                    {{getHeroById(match.players).localized_name}}
+                                    <img class="image" src="http://www.dotastyle.com/back/assets/img/heroes/lg/{{heroService.getHeroById(match.players).id}}.png" alt="">
+                                    {{heroService.getHeroById(match.players).localized_name}}
                                 </div>
                                 <div class="col result">
                                     <div>{{match.match_id}}</div>
                                 </div>
-                                <div class="col">{{getLobbieById(match.lobby_type)}}</div>
+                                <div class="col">{{heroService.getLobbieById(match.lobby_type)}}</div>
                             </a>
                         </div>
                     </div>

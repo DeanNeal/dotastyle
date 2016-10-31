@@ -1,17 +1,17 @@
 <div class="matches_detail_wrapper">
 
- <h2>WINNER: 
+ <h2>WINNER:
 	<span class="radiant" *ngIf="matchInfo.radiant_win">RADIANT</span>
 	<span class="dire" *ngIf="!matchInfo.radiant_win">DIRE</span>
 </h2>
-<div class="match_detail">
+<div class="match_detail" *ngIf="matchInfo.match_id">
 
 		<div class="info fl-right">
 			<div>Match ID:<br><span> {{matchInfo.match_id}}</span></div>
-			<div>Game type <br><span>{{matchInfo.lobby_type}}</span></div>
-			<div>Game mode <br><span>{{matchInfo.game_mode}}</span></div>
-			<div>Duration <br><span>{{matchInfo.duration}}</span></div>
-			<div>Time <br><span>{{matchInfo.start_time}}</span></div>
+			<div>Game type <br><span>{{getLobbieById()}}</span></div>
+			<div>Game mode <br><span>{{getModeById()}}</span></div>
+			<div>Duration <br><span>{{matchInfo.duration |  amDuration:'seconds' }} ago</span></div>
+			<div>Time <br><span>{{matchInfo.start_time*1000 | date: "dd.mm.yyyy HH:mm"}}</span></div>
 		</div>
 		<div *ngFor="let side of sides">
 				<h3 class="table_name {{side.className}}">{{side.title}}</h3>
@@ -32,26 +32,26 @@
 						<td>GPM</td>
 						<td>XPM</td>
 					</tr>
-	
-					<tr *ngFor="let player of matchInfo.players; let i = index">
+
+					<tr *ngFor="let player of side.players; let i = index" [class.active]="player.account_id == 152034112">
 						<td class="avatar">
 							<div class="player">
 								<i class="show-info"></i>
 								<div *ngIf="player.steamid">
 									<img [src]="player.avatar" alt="">
-									<span>{{player.personaname}}</span>
+									<span class="name">{{player.personaname}}</span>
 								</div>
 
 								<div *ngIf="!player.steamid">
 									<img src="/images/noavatar.png" alt="">
-									<span>anonymous</span>
+									<span class="name">anonymous</span>
 								</div>
 							</div>
 						</td>
 						<td>{{player.level}}</td>
 						<td class="hero-image">
-							<img src="http://www.dotastyle.com/back/assets/img/heroes/lg/{{getHeroById(player.hero_id).id}}.png" alt="">
-							{{getHeroById(player.hero_id).localized_name}}
+							<img src="http://www.dotastyle.com/back/assets/img/heroes/lg/{{heroService.getHeroById(player.hero_id).id}}.png" alt="">
+							<span class="name">{{heroService.getHeroById(player.hero_id).localized_name}}</span>
 						</td>
 						<td>{{player.kills}}</td>
 						<td>{{player.deaths}}</td>
@@ -59,7 +59,7 @@
 						<td class="items">
 <!-- 								<% for(var j=0; j<=5;j++) {}}
 								<%var playerItem = player['item_'+j]}}
-								<%if (playerItem) {}}							
+								<%if (playerItem) {}}
 									<img class="item" src='http://dotastyle.com/back/assets/img/items/lg/{{playerItem}}.png' data-item-id="{{playerItem}}">
 								<% } }}
 							<% } }} -->
@@ -72,13 +72,6 @@
 						<td>{{player.gold_per_min}}</td>
 						<td>{{player.xp_per_min}}</td>
 					</tr>
-					
-				
-	
-
-			
-	
-
 				</table>
 		</div>
 
@@ -87,7 +80,6 @@
 
 
 </div>
-<!-- <button class="watch-match">Replay</button>-->
 
 
 </div>

@@ -240,7 +240,7 @@ $profileBg: rgba(0, 0, 0, 0.5);
         .right-block {
             margin-top: 100px;
             float: right;
-            width: 49%;
+            width: 100%;
             overflow: hidden;
             background: $profileBg;
             position: relative;
@@ -459,4 +459,3 @@ $profileBg: rgba(0, 0, 0, 0.5);
         }
     }
 }
-

@@ -6,6 +6,8 @@ import { RouterModule }   from '@angular/router';
 
 import { HttpModule, JsonpModule } from '@angular/http';
 
+import {MomentModule} from 'angular2-moment';
+
 import { routing } from './app.routing';
 import { HomeComponent }  from './home/home.component';
 import { NewsComponent }  from './news/news.component';
@@ -20,7 +22,7 @@ import { HeroService }  from './services/hero.service';
 function getAppModule(conf) {
   @NgModule({
     declarations: [ AppComponent, HomeComponent, NewsComponent, ProfileComponent, MatchInfoComponent, TopPanelComponent],
-    imports:      [ BrowserModule, routing, HttpModule, JsonpModule ],
+    imports:      [ BrowserModule, routing, HttpModule, JsonpModule, MomentModule],
     bootstrap:    [ AppComponent ],
     providers: [ HeroService ]
   })

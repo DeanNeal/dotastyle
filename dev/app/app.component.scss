@@ -22,8 +22,7 @@ h3{
 	max-width: 90%;
 	min-width: 860px;
 	padding: 0px 20px;
-    color: #fff;
-	height: 100%;
+  color: #fff;
     // @include respond-to(handhelds) { width: 980px ;}
     // @include respond-to(medium-screens) { max-width: 1170px; }
     //@include respond-to(wide-screens) { max-width: 90% }
@@ -62,7 +61,7 @@ a.active{
 			top: 0;
 			background: #191818;
 			width: 100%;
-			ul{	
+			ul{
 				li{
 					color: #fff;
 					padding: 10px;
