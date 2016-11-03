@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HeroService }  from '../../services/hero.service';
 
+// import { TooltipComponent }  from '../../overall/tooltip.component';
+
+
 @Component({
     selector: 'profile',
     templateUrl: './match-info.component.html',
@@ -9,10 +12,10 @@ import { HeroService }  from '../../services/hero.service';
 })
 export class MatchInfoComponent {
     lastMatches = [];
-    sides:any = [];
-    radiantTeam = [];
-    direTeam = [];
+    sides: any = [];
+    abilities = [];
     isLoading = true;
+    timeout;
     private sub: any;
     public matchInfo: any = {};
     constructor(
@@ -21,14 +24,20 @@ export class MatchInfoComponent {
     ) { }
 
     ngOnInit() {
+        for (var i = 0; i < 25; ++i) {
+            this.abilities.push({});
+        }
+
         this.sides = [
             {
-                title: 'The radiant',
+                title: 'THE RADIANT',
+                buildTitle: 'RADIANT BUILDS',
                 className: 'radiant',
                 players: []
             },
             {
-                title: 'The dire',
+                title: 'THE DIRE',
+                buildTitle: 'DIRE BUILDS',
                 className: "dire",
                 players: []
             }
@@ -44,6 +53,8 @@ export class MatchInfoComponent {
                         this.sides[1].players.push(item);
                     }
                 });
+            },() => {
+                alert('Error');
             });
         });
     }
@@ -51,8 +62,23 @@ export class MatchInfoComponent {
     getLobbieById() {
         return this.heroService.getLobbieById(this.matchInfo.lobby_type);
     }
+
     getModeById() {
         return this.heroService.getModeById(this.matchInfo.game_mode);
+    }
+
+    onMouseOver(player) {
+      this.timeout = setTimeout(()=>{
+        this.heroService.getTooltip().subscribe((params:any) => {
+            player.tooltip = params;
+        });
+      },300);
+
+    }
+
+    onMouseOut(player) {
+        clearTimeout(this.timeout);
+        player.tooltip = null;
     }
 
     ngOnDestroy() {

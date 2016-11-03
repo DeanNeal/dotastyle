@@ -1,7 +1,7 @@
 .matches_detail_wrapper {
     font-family: Open sans;
     margin-top: 20px;
-
+    margin-bottom: 50px;
     h2 {
         color: #A2A99E;
         display: inline-block;
@@ -125,6 +125,12 @@
             }
         }
 
+        .abilities-table {
+            &-td {
+              text-align: center;
+            }
+        }
+
         table {
             background: rgba(0, 0, 0, 0.5);
             width: 100%;
@@ -203,7 +209,7 @@
                         color: #E7BA01;
                     }
 
-                    &.hero-image {
+                    &.hero-image {position: relative;
                         img {
                             height: 23px;
                             float: left;

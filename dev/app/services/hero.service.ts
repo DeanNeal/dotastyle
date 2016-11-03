@@ -16,6 +16,7 @@ export class HeroService {
         lobbies: [],
         mods: []
     };
+    steamAuth = true;
     _state: InternalStateType = {};
     constructor(private http: Http) { }
     url = 'http://www.dotastyle.com/api/';
@@ -87,6 +88,15 @@ export class HeroService {
     getModeById(id) {
         let mode = _.find(this.mainData.mods, { 'id': id });
         return mode.name;
+    }
+
+    getTooltip() {
+      return this.http.get('build/kunka.json')
+          .map((res: Response) => {
+              // this.response;
+              return res.json()
+          });
+
     }
 
     private extractData(res: Response) {

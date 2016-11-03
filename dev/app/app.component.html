@@ -6,9 +6,27 @@
     <div class="header">
         <div class="wrapper">
             <div class="avatar">
-                <a href="http://dotastyle.com/api/steam_register">
+                <a href="http://dotastyle.com/api/steam_register" *ngIf="!steamAuth">
                     <img src="/images/sing_in_small.png" alt="">
                 </a>
+                <div class="" *ngIf="steamAuth">
+                    <div class="overflow">
+                        <img class="user-image" src="<%=data.avatarfull%>">
+                        <div class="name">
+                            <%=data.personaname%>
+                            <%=data.realname%>
+                          </div>
+                        <div class="status">Online</div>
+                    </div>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="#profile">Profile</a>
+                        </li>
+                        <li>
+                            <a class="exit" href="#">Exit</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -28,7 +46,12 @@
                 <div class="socials">
                     <div id="vk_like"></div>
                     <div id="fb_like">
-                        <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fdotastyle.com%2F&amp;width=110&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;width:110px;" allowTransparency="true"></iframe>
+                        <iframe
+                            src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fdotastyle.com%2F&amp;width=110&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=21"
+                            scrolling="no"
+                            frameborder="0"
+                            style="border:none; overflow:hidden; height:21px;width:110px;"
+                            allowTransparency="true"></iframe>
                     </div>
                 </div>
                 <div class="version">v0.3</div>

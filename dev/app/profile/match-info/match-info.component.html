@@ -1,85 +1,124 @@
 <div class="matches_detail_wrapper">
+    <h2>WINNER:
+        <span class="radiant" *ngIf="matchInfo.radiant_win">RADIANT</span>
+        <span class="dire" *ngIf="!matchInfo.radiant_win">DIRE</span>
+    </h2>
+    <div class="match_detail" *ngIf="matchInfo.match_id">
 
- <h2>WINNER:
-	<span class="radiant" *ngIf="matchInfo.radiant_win">RADIANT</span>
-	<span class="dire" *ngIf="!matchInfo.radiant_win">DIRE</span>
-</h2>
-<div class="match_detail" *ngIf="matchInfo.match_id">
+        <div class="info fl-right">
+            <div>Match ID:<br>
+                <span>
+                    {{matchInfo.match_id}}</span>
+            </div>
+            <div>Game type
+                <br>
+                <span>{{getLobbieById()}}</span>
+            </div>
+            <div>Game mode
+                <br>
+                <span>{{getModeById()}}</span>
+            </div>
+            <div>Duration
+                <br>
+                <span>{{matchInfo.duration |  amDuration:'seconds' }}
+                    ago</span>
+            </div>
+            <div>Time
+                <br>
+                <span>{{matchInfo.start_time*1000 | date: "dd.mm.yyyy HH:mm"}}</span>
+            </div>
+        </div>
 
-		<div class="info fl-right">
-			<div>Match ID:<br><span> {{matchInfo.match_id}}</span></div>
-			<div>Game type <br><span>{{getLobbieById()}}</span></div>
-			<div>Game mode <br><span>{{getModeById()}}</span></div>
-			<div>Duration <br><span>{{matchInfo.duration |  amDuration:'seconds' }} ago</span></div>
-			<div>Time <br><span>{{matchInfo.start_time*1000 | date: "dd.mm.yyyy HH:mm"}}</span></div>
-		</div>
-		<div *ngFor="let side of sides">
-				<h3 class="table_name {{side.className}}">{{side.title}}</h3>
-				<table>
-					<tr>
-						<td>Player</td>
-						<td>Level</td>
-						<td>Hero</td>
-						<td>K</td>
-						<td>D</td>
-						<td>A</td>
-						<td>Items</td>
-						<td>Gold</td>
-						<td>Denies</td>
-						<td>Last hits</td>
-						<td>HD</td>
-						<td>TD</td>
-						<td>GPM</td>
-						<td>XPM</td>
-					</tr>
+        <div *ngFor="let side of sides">
+            <h3 class="table_name {{side.className}}">{{side.title}}</h3>
+            <table>
+                <tr>
+                    <td>Player</td>
+                    <td>Level</td>
+                    <td>Hero</td>
+                    <td>K</td>
+                    <td>D</td>
+                    <td>A</td>
+                    <td>Items</td>
+                    <td>Gold</td>
+                    <td>Denies</td>
+                    <td>Last hits</td>
+                    <td>HD</td>
+                    <td>TD</td>
+                    <td>GPM</td>
+                    <td>XPM</td>
+                </tr>
 
-					<tr *ngFor="let player of side.players; let i = index" [class.active]="player.account_id == 152034112">
-						<td class="avatar">
-							<div class="player">
-								<i class="show-info"></i>
-								<div *ngIf="player.steamid">
-									<img [src]="player.avatar" alt="">
-									<span class="name">{{player.personaname}}</span>
-								</div>
+                <tr *ngFor="let player of side.players; let i = index" [class.active]="player.account_id == 152034112">
+                    <td class="avatar">
+                        <div class="player">
+                            <i class="show-info"></i>
+                            <div *ngIf="player.steamid">
+                                <img [src]="player.avatar" alt="">
+                                <span class="name">{{player.personaname}}</span>
+                            </div>
 
-								<div *ngIf="!player.steamid">
-									<img src="/images/noavatar.png" alt="">
-									<span class="name">anonymous</span>
-								</div>
-							</div>
-						</td>
-						<td>{{player.level}}</td>
-						<td class="hero-image">
-							<img src="http://www.dotastyle.com/back/assets/img/heroes/lg/{{heroService.getHeroById(player.hero_id).id}}.png" alt="">
-							<span class="name">{{heroService.getHeroById(player.hero_id).localized_name}}</span>
-						</td>
-						<td>{{player.kills}}</td>
-						<td>{{player.deaths}}</td>
-						<td>{{player.assists}}</td>
-						<td class="items">
-<!-- 								<% for(var j=0; j<=5;j++) {}}
-								<%var playerItem = player['item_'+j]}}
-								<%if (playerItem) {}}
-									<img class="item" src='http://dotastyle.com/back/assets/img/items/lg/{{playerItem}}.png' data-item-id="{{playerItem}}">
-								<% } }}
-							<% } }} -->
-						</td>
-						<td class="gold">{{player.gold}}</td>
-						<td>{{player.denies}}</td>
-						<td>{{player.last_hits}}</td>
-						<td>{{player.hero_damage}}</td>
-						<td>{{player.tower_damage}}</td>
-						<td>{{player.gold_per_min}}</td>
-						<td>{{player.xp_per_min}}</td>
-					</tr>
-				</table>
-		</div>
+                            <div *ngIf="!player.steamid">
+                                <img src="/images/noavatar.png" alt="">
+                                <span class="name">anonymous</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td>{{player.level}}</td>
+                    <td class="hero-image">
+                        <img src="http://www.dotastyle.com/back/assets/img/heroes/lg/{{heroService.getHeroById(player.hero_id).id}}.png" alt="" (mouseover)="onMouseOver(player)" (mouseout)="onMouseOut(player)">
+                        <tooltip [(tooltip)]="player.tooltip" *ngIf="player.tooltip"></tooltip>
+                        <span class="name">{{heroService.getHeroById(player.hero_id).localized_name}}</span>
+                    </td>
+                    <td>{{player.kills}}</td>
+                    <td>{{player.deaths}}</td>
+                    <td>{{player.assists}}</td>
+                    <td class="items">
+                        <img class="item" *ngIf="player.item_0" src='http://dotastyle.com/back/assets/img/items/lg/{{player.item_0}}.png'>
+                        <img class="item" *ngIf="player.item_1" src='http://dotastyle.com/back/assets/img/items/lg/{{player.item_1}}.png'>
+                        <img class="item" *ngIf="player.item_2" src='http://dotastyle.com/back/assets/img/items/lg/{{player.item_2}}.png'>
+                        <img class="item" *ngIf="player.item_3" src='http://dotastyle.com/back/assets/img/items/lg/{{player.item_3}}.png'>
+                        <img class="item" *ngIf="player.item_4" src='http://dotastyle.com/back/assets/img/items/lg/{{player.item_4}}.png'>
+                        <img class="item" *ngIf="player.item_5" src='http://dotastyle.com/back/assets/img/items/lg/{{player.item_5}}.png'>
+                    </td>
+                    <td class="gold">{{player.gold}}</td>
+                    <td>{{player.denies}}</td>
+                    <td>{{player.last_hits}}</td>
+                    <td>{{player.hero_damage}}</td>
+                    <td>{{player.tower_damage}}</td>
+                    <td>{{player.gold_per_min}}</td>
+                    <td>{{player.xp_per_min}}</td>
+                </tr>
+            </table>
+        </div>
 
+        <div *ngFor="let side of sides" class="abilities-table">
+            <h3 class="table_name {{side.className}}">{{side.buildTitle}}</h3>
+            <table>
+              <tr>
+                  <td>Hero</td>
+                  <td *ngFor="let player of abilities; let i = index" class="abilities-table-td">{{i+1}}</td>
+              </tr>
+              <tr *ngFor="let player of side.players; let i = index" [class.active]="player.account_id == 152034112">
+                  <td class="avatar">
+                      <div class="player">
+                          <div *ngIf="player.steamid">
+                              <img [src]="player.avatar" alt="">
+                          </div>
+                          <div *ngIf="!player.steamid">
+                              <img src="/images/noavatar.png" alt="">
+                          </div>
+                      </div>
+                  </td>
+                  <td *ngFor="let abi of player.ability_upgrades">
+                      {{abi.ability}}
+                  </td>
+              </tr>
+            </table>
+        </div>
 
-	 	<div class="hero-detailed">rewrr</div>
+        <div class="hero-detailed">rewrr</div>
 
-
-</div>
-
+    </div>
 
 </div>

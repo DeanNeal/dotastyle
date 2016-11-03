@@ -11,6 +11,7 @@ import {MomentModule} from 'angular2-moment';
 import { routing } from './app.routing';
 import { HomeComponent }  from './home/home.component';
 import { NewsComponent }  from './news/news.component';
+import { NewsDetailComponent }  from './news/news-detail/news-detail.component';
 import { ProfileComponent }  from './profile/profile.component';
 import { MatchInfoComponent }  from './profile/match-info/match-info.component';
 
@@ -18,10 +19,11 @@ import { MatchInfoComponent }  from './profile/match-info/match-info.component';
 import { TopPanelComponent }  from './home/top-panel/top-panel.component';
 
 import { HeroService }  from './services/hero.service';
+import { TooltipComponent }  from './overall/tooltip.component';
 
 function getAppModule(conf) {
   @NgModule({
-    declarations: [ AppComponent, HomeComponent, NewsComponent, ProfileComponent, MatchInfoComponent, TopPanelComponent],
+    declarations: [ AppComponent, HomeComponent, NewsComponent, NewsDetailComponent, ProfileComponent, MatchInfoComponent, TopPanelComponent, TooltipComponent],
     imports:      [ BrowserModule, routing, HttpModule, JsonpModule, MomentModule],
     bootstrap:    [ AppComponent ],
     providers: [ HeroService ]
